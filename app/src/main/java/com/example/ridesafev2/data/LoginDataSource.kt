@@ -14,16 +14,11 @@ class LoginDataSource (val database: UserDao){
 
     fun login(username: String, password: String): Result<LoggedInUser> {
         val usersNames = database.login(username)
-        try {
-            CoroutineScope(Dispatchers.IO).launch {
-                if(usersNames.password == password) {
-                    val User = LoggedInUser(usersNames.userId.toString(),usersNames.name)
-                    Result.Success(User)
-                }
-            }
-            return Result.Error(IOException("Wrong password"))
-        } catch (e: Throwable) {
-            return Result.Error(IOException("Error logging in", e))
+        return if(usersNames.password == password) {
+            val User = LoggedInUser(usersNames.userId.toString(),usersNames.name)
+            Result.Success(User)
+        } else {
+            Result.Error(IOException("Error logging in"))
         }
     }
 

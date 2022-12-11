@@ -1,6 +1,7 @@
 package com.example.ridesafev2.ui.login
 
 import android.app.Activity
+import android.graphics.Color
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -12,9 +13,11 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.ridesafev2.databinding.ActivityLoginBinding
 
 import com.example.ridesafev2.R
+import com.example.ridesafev2.data.register.Register
 import com.example.ridesafev2.data.user.UserDatabase
 
 class LoginActivity : AppCompatActivity() {
@@ -31,8 +34,10 @@ class LoginActivity : AppCompatActivity() {
         val username = binding.usernameEditText
         val password = binding.passwordEditText
         val login = binding.btnLogin
+        val register = binding.btnRegister
         val loading = binding.loading
         val dataSource = UserDatabase.getInstance(application).userDao
+
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory(dataSource))
             .get(LoginViewModel::class.java)
@@ -96,6 +101,17 @@ class LoginActivity : AppCompatActivity() {
             login.setOnClickListener {
                 loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
+            }
+
+            register.setOnClickListener {
+                val registerFragment = Register()
+                val fragment: Fragment? =  supportFragmentManager.findFragmentByTag(Register::class.java.simpleName)
+
+                if (fragment !is Register){
+                    supportFragmentManager.beginTransaction()
+                        .add(R.id.container, registerFragment,Register::class.java.simpleName)
+                        .commit()
+                }
             }
         }
     }

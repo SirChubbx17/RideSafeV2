@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/register">
+
+    <fragment
+        android:id="@+id/register"
+        android:name="com.example.ridesafev2.data.register.Register"
+        android:label="rs_frag_register"
+        tools:layout="@layout/rs_frag_register" />
+</navigation>
