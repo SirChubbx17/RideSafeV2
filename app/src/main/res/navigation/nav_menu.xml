@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_menu"
+    app:startDestination="@id/homeFrag">
+
+    <fragment
+        android:id="@+id/homeFrag"
+        android:name="com.example.ridesafev2.Home"
+        android:label="rs_frag_home"
+        tools:layout="@layout/rs_frag_home" >
+        <action
+            android:id="@+id/action_homeFrag_to_about"
+            app:destination="@id/about" />
+        <action
+            android:id="@+id/action_homeFrag_to_history"
+            app:destination="@id/history" />
+        <action
+            android:id="@+id/action_homeFrag_to_adventure"
+            app:destination="@id/adventure" />
+    </fragment>
+    <fragment
+        android:id="@+id/about"
+        android:name="com.example.ridesafev2.About"
+        android:label="rs_frag_about"
+        tools:layout="@layout/rs_frag_about" >
+        <action
+            android:id="@+id/action_about_to_history"
+            app:destination="@id/history" />
+        <action
+            android:id="@+id/action_about_to_adventure"
+            app:destination="@id/adventure" />
+        <action
+            android:id="@+id/action_about_to_homeFrag"
+            app:destination="@id/homeFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/history"
+        android:name="com.example.ridesafev2.History"
+        android:label="rs_frag_history"
+        tools:layout="@layout/rs_frag_history" >
+        <action
+            android:id="@+id/action_history_to_about"
+            app:destination="@id/about" />
+        <action
+            android:id="@+id/action_history_to_adventure"
+            app:destination="@id/adventure" />
+        <action
+            android:id="@+id/action_history_to_homeFrag"
+            app:destination="@id/homeFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/adventure"
+        android:name="com.example.ridesafev2.Adventure"
+        android:label="rs_frag_adventure"
+        tools:layout="@layout/rs_frag_adventure" >
+        <action
+            android:id="@+id/action_adventure_to_homeFrag"
+            app:destination="@id/homeFrag" />
+        <action
+            android:id="@+id/action_adventure_to_about"
+            app:destination="@id/about" />
+        <action
+            android:id="@+id/action_adventure_to_history"
+            app:destination="@id/history" />
+    </fragment>
+</navigation>
