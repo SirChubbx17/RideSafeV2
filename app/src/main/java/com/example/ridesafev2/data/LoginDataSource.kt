@@ -14,12 +14,14 @@ class LoginDataSource (val database: UserDao){
 
     fun login(username: String, password: String): Result<LoggedInUser> {
         val usersNames = database.login(username)
-        return if(usersNames.password == password) {
-            val User = LoggedInUser(usersNames.userId.toString(),usersNames.name)
-            Result.Success(User)
-        } else {
-            Result.Error(IOException("Error logging in"))
-        }
+        if (usersNames != null) {
+            return if (usersNames.password == password) {
+                val User = LoggedInUser(usersNames.userId.toString(), usersNames.name)
+                Result.Success(User)
+            } else {
+                Result.Error(IOException("Error logging in"))
+            }
+        } else { return Result.Error(IOException("Error logging in")) } //error handling
     }
 
     fun logout() {

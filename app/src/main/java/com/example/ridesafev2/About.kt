@@ -5,15 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.example.ridesafev2.databinding.FragmentAboutBinding
+import com.example.ridesafev2.databinding.RsFragAboutBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class AboutFragment : Fragment() {
+class About : Fragment() {
 
-    private var _binding: FragmentAboutBinding? = null
+    private var _binding: RsFragAboutBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +23,7 @@ class AboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentAboutBinding.inflate(inflater, container, false)
+        _binding = RsFragAboutBinding.inflate(inflater, container, false)
         return binding.root
 
     }
