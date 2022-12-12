@@ -1,47 +1,43 @@
 package com.example.ridesafev2
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ridesafev2.databinding.RsFragAboutBinding
 
-class FAQ : AppCompatActivity() {
-    private lateinit var recyclerView : RecyclerView
-    private var faqList = ArrayList<FAQData>()
-    private lateinit var adapter: FAQAdapter
+class FAQ : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.rs_frag_faq)
+    private var _binding: RsFragAboutBinding? = null
 
-        recyclerView = findViewById(R.id.recyclerView)
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        addDataToList()
-        adapter = FAQAdapter(faqList)
-        recyclerView.adapter = adapter
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        _binding = RsFragAboutBinding.inflate(inflater, container, false)
+        return binding.root
 
     }
 
-    private fun addDataToList() {
-        faqList.add(
-            FAQData(
-                "What is ridesafe?",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est placerat in egestas erat. Semper feugiat nibh sed pulvinar proin gravida hendrerit. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit. Enim nulla aliquet porttitor lacus luctus accumsan."
-            )
-        )
-        faqList.add(
-            FAQData(
-                "How to user ridesafe?",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            )
-        )
-        faqList.add(
-            FAQData(
-                "Fix a map issue",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            )
-        )
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        binding.buttonSecond.setOnClickListener {
+//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+//        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
