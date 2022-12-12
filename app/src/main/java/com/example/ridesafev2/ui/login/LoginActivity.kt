@@ -1,6 +1,7 @@
 package com.example.ridesafev2.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +15,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.ridesafev2.MainActivity
 import com.example.ridesafev2.databinding.ActivityLoginBinding
 
 import com.example.ridesafev2.R
@@ -65,11 +67,14 @@ class LoginActivity : AppCompatActivity() {
             }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
             }
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
             //finish()
+
         })
 
         username.afterTextChanged {
