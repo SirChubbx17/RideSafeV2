@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:name = "androidx.navigation.fragment.NavHostFragment"
-            app:navGraph = "@navigation/navigation"
+            app:navGraph = "@navigation/nav_menu"
             app:defaultNavHost = "true"
             tools:layout="@layout/rs_frag_home" />
     </LinearLayout>
@@ -48,6 +48,22 @@
             app:menu="@menu/nav_drawer"/>
 
     </androidx.drawerlayout.widget.DrawerLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:menu="@menu/navigation_items"
+            app:itemRippleColor="@color/border"
+            app:itemIconTint="@color/icon_color">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </RelativeLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
