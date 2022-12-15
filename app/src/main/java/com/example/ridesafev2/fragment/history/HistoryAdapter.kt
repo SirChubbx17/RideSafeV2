@@ -17,17 +17,12 @@ class HistoryAdapter:RecyclerView.Adapter<HistoryAdapter.MyViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.custom_row,
-                parent,
-                false)
-        )
+        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.custom_row,
+            parent,
+            false))
 
     }
-    override fun getItemCount(): Int {
-        return locationList.size
-    }
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = locationList[position]
 
@@ -35,6 +30,9 @@ class HistoryAdapter:RecyclerView.Adapter<HistoryAdapter.MyViewHolder>() {
         holder.itemView.findViewById<TextView>(R.id.destination_txt).text = currentItem.destination.toString()
         holder.itemView.findViewById<ConstraintLayout>(R.id.rowLayout)
 
+    }
+    override fun getItemCount(): Int {
+        return locationList.size
     }
     fun setData(location: List<Location>) {
         this.locationList = location

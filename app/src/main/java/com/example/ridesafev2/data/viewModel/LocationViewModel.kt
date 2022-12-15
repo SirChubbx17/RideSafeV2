@@ -22,13 +22,13 @@ class LocationViewModel (application: Application): AndroidViewModel(application
 
     fun addLocation(location: Location) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addStorage(location)
+            repository.addLocation(location)
         }
     }
 
     fun updateLocation(location: Location) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.updateStorage(location)
+            repository.updateLocation(location)
         }
     }
 

@@ -19,16 +19,16 @@ abstract class LocationDatabase: RoomDatabase() { // <- Add 'abstract' keyword a
         private var INSTANCE: LocationDatabase? = null
 
         fun getDatabase(context: Context): LocationDatabase {
-            val tempInstance = INSTANCE
+            val locInstance = INSTANCE
 
-            if (tempInstance != null) {
-                return tempInstance
+            if (locInstance != null) {
+                return locInstance
             }
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     LocationDatabase::class.java,
-                    "storage_database"
+                    "location_database"
                 ).build()
                 INSTANCE = instance
                 return instance
