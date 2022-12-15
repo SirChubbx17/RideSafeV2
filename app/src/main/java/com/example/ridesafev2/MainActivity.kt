@@ -10,12 +10,16 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.ridesafev2.data.register.Register
 import com.example.ridesafev2.databinding.ActivityMainBinding
+import com.example.ridesafev2.databinding.RsFragHomeBinding
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
