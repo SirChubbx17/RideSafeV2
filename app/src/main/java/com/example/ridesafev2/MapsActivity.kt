@@ -73,7 +73,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(48.8588495,2.3119299)
+        val sydney = LatLng(14.6257638,121.0617218)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Paris"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
@@ -117,7 +117,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private val locationCallback = object : LocationCallback(){
         override fun onLocationResult(locationResult: LocationResult) {
-            var lastLocation: Location? = locationResult.lastLocation
+            var lastLocation: Location = locationResult.lastLocation
             if (lastLocation != null) {
                 Log.d("Debug:","your last last location: "+ lastLocation.longitude.toString())
             }
