@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/login_logo"
-            android:layout_width="195dp"
-            android:layout_height="145dp"
+            android:layout_width="116dp"
+            android:layout_height="48dp"
             android:layout_marginTop="40dp"
             android:contentDescription="@string/txtregister"
             android:cropToPadding="false"
@@ -154,5 +154,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_usertip" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

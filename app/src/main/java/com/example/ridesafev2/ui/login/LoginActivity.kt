@@ -21,17 +21,20 @@ import com.example.ridesafev2.databinding.ActivityLoginBinding
 import com.example.ridesafev2.R
 import com.example.ridesafev2.data.register.Register
 import com.example.ridesafev2.data.user.UserDatabase
+import com.example.ridesafev2.databinding.RsFragRegisterBinding
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var bind: RsFragRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
+        bind = RsFragRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val username = binding.usernameEditText
@@ -117,6 +120,8 @@ class LoginActivity : AppCompatActivity() {
                         .add(R.id.container, registerFragment,Register::class.java.simpleName)
                         .commit()
                 }
+
+
             }
         }
     }

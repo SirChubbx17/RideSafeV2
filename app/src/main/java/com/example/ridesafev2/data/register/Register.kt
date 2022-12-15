@@ -1,6 +1,7 @@
 package com.example.ridesafev2.data.register
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.ridesafev2.R
 import com.example.ridesafev2.data.user.UserDatabase
 import com.example.ridesafev2.databinding.RsFragRegisterBinding
+import com.example.ridesafev2.ui.login.LoginActivity
 
 class Register : Fragment() {
     @SuppressLint("FragmentLiveDataObserve")
@@ -48,6 +50,7 @@ class Register : Fragment() {
         binding.registerViewModel = registerViewModel
 
         binding.setLifecycleOwner(this)
+
 
         return binding.root
     }
