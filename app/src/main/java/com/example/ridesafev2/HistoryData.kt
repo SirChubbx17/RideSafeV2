@@ -1,6 +1,7 @@
 package com.example.ridesafev2
 
 data class HistoryData (
-    val question: String,
-    val content: String,
+    val start: String,
+    val end: String,
+    val distance: String,
 )

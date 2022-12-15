@@ -35,8 +35,9 @@ class History : AppCompatActivity() {
     private fun addDataToList() {
         historyList.add(
             HistoryData(
-                "What is ridesafe?",
-                "Lorem ipsum blah blah blah"
+                "Marikina City",
+                "Antipolo City",
+                "10km",
             )
         )
     }
