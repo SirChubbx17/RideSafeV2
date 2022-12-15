@@ -27,9 +27,9 @@ class HistoryAdapter(private var historyList: List<HistoryData>) :
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         val historyData = historyList[position]
-        holder.route1txt.text = historyData.content
-        holder.route2txt.text = historyData.content
-        holder.dsttxt.text = historyData.content
+        holder.route1txt.text = historyData.start
+        holder.route2txt.text = historyData.end
+        holder.dsttxt.text = historyData.distance
     }
 
     override fun getItemCount(): Int {
