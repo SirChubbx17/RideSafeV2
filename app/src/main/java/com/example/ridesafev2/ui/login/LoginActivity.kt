@@ -16,6 +16,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.ridesafev2.MainActivity
+import com.example.ridesafev2.MapsActivity
 import com.example.ridesafev2.databinding.ActivityLoginBinding
 
 import com.example.ridesafev2.R
@@ -67,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
             }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                val intent = Intent(this@LoginActivity, MapsActivity::class.java)
                 startActivity(intent)
             }
             setResult(Activity.RESULT_OK)

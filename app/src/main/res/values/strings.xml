@@ -69,4 +69,5 @@
     <string name="belen_elijah">Belen, Elijah</string>
     <string name="question">Question</string>
     <string name="content">Content</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
