@@ -1,18 +1,16 @@
-package com.example.ridesafev2
+package com.example.ridesafe
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.ridesafev2.databinding.RsFragHistoryBinding
+import androidx.fragment.app.Fragment
+import com.example.ridesafev2.R
+import com.example.ridesafev2.databinding.RsFragAboutBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class History : Fragment() {
 
-    private var _binding: RsFragHistoryBinding? = null
+    private var _binding: RsFragAboutBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,7 +21,7 @@ class History : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = RsFragHistoryBinding.inflate(inflater, container, false)
+        _binding = RsFragAboutBinding.inflate(inflater, container, false)
         return binding.root
 
     }

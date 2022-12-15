@@ -13,5 +13,6 @@
     <item
         android:id="@+id/FAQFragment"
         android:icon="@drawable/password"
-        android:title="FAQ" />
+        android:title="FAQ"
+        android:onClick="@{()->FAQ}"/>
 </menu>
