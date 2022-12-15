@@ -188,6 +188,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
+                        android:src="@drawable/ej"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
@@ -195,7 +196,7 @@
                     </ImageView>
 
                     <ImageView
-                        android:src="@drawable/jc"
+                        android:src="@drawable/jcc"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="70dp"
@@ -203,7 +204,7 @@
                     </ImageView>
 
                     <ImageView
-                        android:src="@drawable/erie"
+                        android:src="@drawable/eriee"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="140dp"
@@ -211,7 +212,7 @@
                     </ImageView>
 
                     <ImageView
-                        android:src="@drawable/celine"
+                        android:src="@drawable/celinee"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginStart="50dp"

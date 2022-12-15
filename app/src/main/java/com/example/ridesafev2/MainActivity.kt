@@ -11,10 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.*
 import com.example.ridesafev2.databinding.ActivityMainBinding
 import org.json.JSONObject
 import java.net.URL
@@ -48,6 +45,28 @@ class  MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         weatherTask().execute()
+
+//            val binding = ActivityMainBinding.inflate(layoutInflater)
+//            setContentView(binding.root)
+//
+//            val navController = findNavController(R.id.myNavHostFragment)
+//            val drawerLayout = binding.drawerLayout
+            binding.navView.setupWithNavController(navController2)
+            binding.bottomNav.setupWithNavController(navController2)
+
+            appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.homeFrag,
+                    R.id.adventure,
+                    R.id.mapsActivity,
+                ), drawerLayout
+            )
+//            setupActionBarWithNavController(navController, appBarConfiguration)
+//
+//            binding.navView.menu.findItem(R.id.logout).setOnMenuItemClickListener {
+//                logout()
+//                true
+//            }
     }
 
     override fun onSupportNavigateUp(): Boolean {
