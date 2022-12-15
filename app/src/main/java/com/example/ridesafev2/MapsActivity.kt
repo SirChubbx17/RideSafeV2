@@ -3,6 +3,7 @@ package com.example.ridesafev2
 
 
 import android.R.id
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -33,7 +34,7 @@ import java.util.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private lateinit var mMap: GoogleMap
+    private lateinit var map: GoogleMap
     private lateinit var binding: ActivityMapsBinding
 
     //Declaring the needed Variables
@@ -64,20 +65,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sytestdney, Australia.
+     * we just add a marker near Sydney, Australia.
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(14.6257638,121.0617218)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Paris"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        map = googleMap
+        getLastLocation()
     }
-
+    @SuppressLint("MissingPermission")
     fun getLastLocation(){
         if(CheckPermission()){
             if(isLocationEnabled()){
@@ -86,22 +83,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     if(location == null){
                         NewLocationData()
                     }else{
-                        Log.d("Debug:" ,"Your Location:"+ location.longitude)
+                        Log.d("Debug:" ,"Current Location:"+ location.longitude)
                         val pos = LatLng(location.latitude, location.longitude)
-                        mMap.addMarker(MarkerOptions().position(pos).title("Your Location:"+ location.latitude + location.longitude))
-                        mMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
+                        map.addMarker(MarkerOptions().position(pos).title("Your Location:"+ location.latitude + location.longitude))
+                        map.moveCamera(CameraUpdateFactory.newLatLng(pos))
+                        map.animateCamera(CameraUpdateFactory.zoomBy(10F))
+
+
                     //textView.text = "You Current Location is : Long: "+ location.longitude + " , Lat: " + location.latitude + "\n" + getCityName(location.latitude,location.longitude)
                     }
                 }
             }else{
-                Toast.makeText(this,"Please Turn on Your device Location",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Please turn on your device location.",Toast.LENGTH_SHORT).show()
             }
         }else{
             RequestPermission()
         }
     }
 
-
+    @SuppressLint("MissingPermission")
     fun NewLocationData(){
         var locationRequest =  LocationRequest()
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
@@ -114,12 +114,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         )
     }
 
-
     private val locationCallback = object : LocationCallback(){
         override fun onLocationResult(locationResult: LocationResult) {
-            var lastLocation: Location = locationResult.lastLocation
+            var lastLocation: Location? = locationResult.lastLocation
             if (lastLocation != null) {
-                Log.d("Debug:","your last last location: "+ lastLocation.longitude.toString())
+                Log.d("Debug:","Your last last location: "+ lastLocation.longitude.toString())
             }
             //textView.text = "You Last Location is : Long: "+ lastLocation.longitude + " , Lat: " + lastLocation.latitude + "\n" + getCityName(lastLocation.latitude,lastLocation.longitude)
         }
