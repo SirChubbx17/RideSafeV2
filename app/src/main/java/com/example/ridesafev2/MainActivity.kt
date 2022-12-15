@@ -83,7 +83,6 @@ class MainActivity : AppCompatActivity() {
                 val jsonObj = JSONObject(result)
                 val main = jsonObj.getJSONObject("main")
                 val sys = jsonObj.getJSONObject("sys")
-                val wind = jsonObj.getJSONObject("wind")
                 val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
 
                 val updatedAt:Long = jsonObj.getLong("dt")
