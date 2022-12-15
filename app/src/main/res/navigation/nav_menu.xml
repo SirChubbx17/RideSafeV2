@@ -51,7 +51,7 @@
         android:id="@+id/history"
         android:name="com.example.ridesafev2.History"
         android:label="History"
-        tools:layout="@layout/rs_frag_history" >
+        tools:layout="@layout/rs_frag_home">
         <action
             android:id="@+id/action_history_to_about"
             app:destination="@id/about" />
