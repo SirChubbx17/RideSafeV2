@@ -9,10 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ridesafev2.databinding.RsFragAboutBinding
+import com.example.ridesafev2.databinding.RsFragFaqBinding
 
 class FAQ : Fragment() {
 
-    private var _binding: RsFragAboutBinding? = null
+    private var _binding: RsFragFaqBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,7 +24,7 @@ class FAQ : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = RsFragAboutBinding.inflate(inflater, container, false)
+        _binding = RsFragFaqBinding.inflate(inflater, container, false)
         return binding.root
 
     }

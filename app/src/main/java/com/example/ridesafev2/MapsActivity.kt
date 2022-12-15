@@ -18,9 +18,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -36,6 +39,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
     private lateinit var binding: ActivityMapsBinding
+    private lateinit var drawerLayout: DrawerLayout
 
     //Declaring the needed Variables
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
@@ -57,8 +61,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.maps) as SupportMapFragment
         mapFragment.getMapAsync(this)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.myNavHostFragment)
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
     /**
@@ -175,8 +184,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         var geoCoder = Geocoder(this, Locale.getDefault())
         var Adress = geoCoder.getFromLocation(lat,long,3)
 
-        cityName = Adress.get(0).locality
-        countryName = Adress.get(0).countryName
+        if (Adress != null) {
+            cityName = Adress.get(0).locality
+        }
+        if (Adress != null) {
+            countryName = Adress.get(0).countryName
+        }
         Log.d("Debug:","Your City: " + cityName + " ; your Country " + countryName)
         return cityName
     }

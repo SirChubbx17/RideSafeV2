@@ -11,8 +11,9 @@
         android:icon="@drawable/history"
         android:title="History"/>
 
-<!--    <item android:id="@+id/help"-->
-<!--        android:icon="@drawable/help"-->
-<!--        android:title="Help"/>-->
+    <item
+        android:id="@+id/faqFrag"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="FAQ" />
 
 </menu>

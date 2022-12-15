@@ -19,7 +19,7 @@
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="About" />
     <item
-        android:id="@+id/FAQ"
+        android:id="@+id/faqFrag"
         android:icon="@android:drawable/ic_menu_help"
         android:title="FAQ" />
     <item
