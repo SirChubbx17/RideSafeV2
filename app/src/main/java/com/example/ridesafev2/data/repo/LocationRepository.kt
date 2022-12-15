@@ -8,19 +8,19 @@ import com.example.ridesafev2.data.database.LocationDao
 class LocationRepository(private val locationDao: LocationDao) {
     val readAllData: LiveData<List<Location>> = locationDao.readAllData()
 
-    suspend fun addStorage(location: Location) {
+    suspend fun addLocation(location: Location) {
         locationDao.addLocation(location)
     }
 
-    suspend fun updateStorage(location: Location) {
+    suspend fun updateLocation(location: Location) {
         locationDao.updateLocation(location)
     }
 
-    suspend fun deleteStorage(location: Location) {
+    suspend fun deleteLocation(location: Location) {
         locationDao.deleteLocation(location)
     }
 
-    suspend fun deleteAllStorages() {
+    suspend fun deleteAllLocation() {
         locationDao.deleteAllLocation()
     }
 }
