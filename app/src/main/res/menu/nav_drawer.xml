@@ -3,23 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/homeFrag"
         android:icon="@drawable/home"
         android:title="Home" />
     <item
-        android:id="@+id/historyFragment"
+        android:id="@+id/mapsActivity"
+        android:icon="@drawable/home"
+        android:title="Maps" />
+    <item
+        android:id="@+id/history"
         android:icon="@android:drawable/ic_menu_recent_history"
         android:title="History" />
     <item
-        android:id="@+id/aboutFragment"
+        android:id="@+id/about"
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="About" />
     <item
-        android:id="@+id/FAQFragment"
+        android:id="@+id/FAQ"
         android:icon="@android:drawable/ic_menu_help"
         android:title="FAQ" />
     <item
-        android:id="@+id/loginFragment"
+        android:id="@+id/loginActivity"
         android:icon="@android:drawable/ic_menu_revert"
         android:title="Logout" />
 

@@ -19,6 +19,12 @@
         <action
             android:id="@+id/action_homeFrag_to_adventure"
             app:destination="@id/adventure" />
+        <action
+            android:id="@+id/action_homeFrag_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
+        <action
+            android:id="@+id/action_homeFrag_to_loginActivity"
+            app:destination="@id/loginActivity" />
     </fragment>
     <fragment
         android:id="@+id/about"
@@ -65,4 +71,13 @@
             android:id="@+id/action_adventure_to_history"
             app:destination="@id/history" />
     </fragment>
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="com.example.ridesafev2.MapsActivity"
+        android:label="MapsActivity" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.ridesafev2.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>
