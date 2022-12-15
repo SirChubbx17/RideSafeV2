@@ -78,6 +78,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/dst"
                                 android:layout_width="match_parent"
                                 android:layout_column="2"
                                 android:gravity="right"

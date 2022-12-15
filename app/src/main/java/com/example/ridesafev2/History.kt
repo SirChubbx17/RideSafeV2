@@ -4,38 +4,40 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.ridesafev2.HistoryAdapter
+import com.example.ridesafev2.HistoryData
 import com.example.ridesafev2.R
 import com.example.ridesafev2.databinding.RsFragAboutBinding
 
-class History : Fragment() {
+class History : AppCompatActivity() {
+    private lateinit var recyclerView : RecyclerView
+    private var historyList = ArrayList<HistoryData>()
+    private lateinit var adapter: HistoryAdapter
 
-    private var _binding: RsFragAboutBinding? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.rs_frag_history)
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+        recyclerView = findViewById(R.id.recyclerView)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        _binding = RsFragAboutBinding.inflate(inflater, container, false)
-        return binding.root
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        addDataToList()
+        adapter = HistoryAdapter(historyList)
+        recyclerView.adapter = adapter
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-//        binding.buttonSecond.setOnClickListener {
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-//        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun addDataToList() {
+        historyList.add(
+            HistoryData(
+                "What is ridesafe?",
+                "Lorem ipsum blah blah blah"
+            )
+        )
     }
 }
