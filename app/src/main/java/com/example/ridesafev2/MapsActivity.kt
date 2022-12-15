@@ -1,7 +1,5 @@
 package com.example.ridesafev2
 
-
-
 import android.R.id
 import android.annotation.SuppressLint
 import android.content.Context
@@ -63,11 +61,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.maps) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.myNavHostFragment)
         return NavigationUI.navigateUp(navController, drawerLayout)
+
+
     }
 
     /**

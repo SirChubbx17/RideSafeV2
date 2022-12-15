@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_homeFrag_to_FAQ22"
             app:destination="@id/faqFrag" />
+        <action
+            android:id="@+id/action_homeFrag_to_adventure2"
+            app:destination="@id/adventure" />
     </fragment>
     <fragment
         android:id="@+id/about"
@@ -67,7 +70,7 @@
     </fragment>
     <fragment
         android:id="@+id/adventure"
-        android:name="com.example.ridesafev2.Adventure"
+        android:name="com.example.ridesafev2.fragment.add.Adventure"
         android:label="Adventure"
         tools:layout="@layout/rs_frag_adventure" >
         <action
@@ -82,6 +85,9 @@
         <action
             android:id="@+id/action_adventure_to_FAQ2"
             app:destination="@id/faqFrag" />
+        <action
+            android:id="@+id/action_adventure_to_mapsActivity2"
+            app:destination="@id/mapsActivity" />
     </fragment>
     <activity
         android:id="@+id/mapsActivity"

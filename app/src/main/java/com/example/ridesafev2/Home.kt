@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.ridesafev2.databinding.RsFragHomeBinding
 
@@ -25,6 +26,11 @@ class Home : Fragment() {
 
         _binding = RsFragHomeBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
+
+        binding.btnStart.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFrag_to_adventure2)
+        }
+
         return binding.root
 
     }
