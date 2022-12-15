@@ -13,18 +13,21 @@
         android:layout_weight="1">
 
         <fragment
-
             android:id="@+id/maps"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".MapsActivity" />
-        <Button
-            android:id="@+id/getpos"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right|bottom"
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/getpos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="20dp"
+            android:layout_gravity="right|bottom"
+            android:text = "Update Location"
+            app:icon="@drawable/ic_baseline_my_location_24"
+            app:iconGravity="end"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="60dp" />
 

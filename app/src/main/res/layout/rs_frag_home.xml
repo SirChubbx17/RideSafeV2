@@ -131,10 +131,11 @@
                     android:id="@+id/imageView2"
                     android:layout_width="411dp"
                     android:layout_height="300dp"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="2dp"
                     android:src="@drawable/des"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
@@ -171,6 +172,12 @@
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="15dp"
                             android:alpha="0.5"
                             android:scaleType="fitStart"
                             android:src="@drawable/weather"
@@ -179,6 +186,13 @@
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+
+                            android:layout_marginStart="15dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="15dp"
                             android:alpha="0.5"
                             android:scaleType="fitEnd"
                             android:src="@drawable/sunny"
@@ -262,12 +276,15 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnStart"
+                    android:theme="@style/Widget.RideSafeV2.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="Start"
+                    android:text="Start an Adventure!"
+                    app:cornerRadius="20dp"
+                    app:elevation="30dp"
                     app:layout_constraintBottom_toTopOf="@+id/cardView2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />

@@ -49,6 +49,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //actionbar
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Adventure"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         binding.getpos.setOnClickListener {
             Log.d("Debug:", CheckPermission().toString())
@@ -65,10 +73,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.myNavHostFragment)
-        return NavigationUI.navigateUp(navController, drawerLayout)
-
-
+        onBackPressed()
+        return true
     }
 
     /**
@@ -95,10 +101,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     }else{
                         Log.d("Debug:" ,"Current Location:"+ location.longitude)
                         val pos = LatLng(location.latitude, location.longitude)
-                        map.addMarker(MarkerOptions().position(pos).title("Your Location:"+ location.latitude + location.longitude))
+                        map.addMarker(MarkerOptions().position(pos).title("Your Location: "+ getCityName(location.latitude,location.longitude)))
                         map.moveCamera(CameraUpdateFactory.newLatLng(pos))
-                        map.animateCamera(CameraUpdateFactory.zoomBy(10F))
-
+                        map.animateCamera(CameraUpdateFactory.zoomTo(17F))
 
                     //textView.text = "You Current Location is : Long: "+ location.longitude + " , Lat: " + location.latitude + "\n" + getCityName(location.latitude,location.longitude)
                     }
@@ -194,6 +199,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         Log.d("Debug:","Your City: " + cityName + " ; your Country " + countryName)
         return cityName
     }
+
 
 }
 
