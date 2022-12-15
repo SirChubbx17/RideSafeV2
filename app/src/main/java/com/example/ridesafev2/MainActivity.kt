@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController2, drawerLayout)
         NavigationUI.setupWithNavController(binding.navView, navController2)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
