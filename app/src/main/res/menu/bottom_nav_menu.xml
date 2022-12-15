@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/historyFragment"
+        android:id="@+id/history"
         android:icon="@drawable/password"
         android:title="History" />
     <item
-        android:id="@+id/aboutFragment"
+        android:id="@+id/about"
         android:icon="@drawable/password"
         android:title="About" />
     <item
