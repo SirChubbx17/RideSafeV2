@@ -42,8 +42,11 @@ class Adventure : Fragment() {
         binding.btnGo.setOnClickListener {
             insertDataToDatabase()
             findNavController().navigate(R.id.action_adventure_to_mapsActivity2)
-
         }
+        binding.btnDetails.setOnClickListener {
+            findNavController().navigate(R.id.action_adventure_to_history)
+        }
+
 
         return binding.root
 

@@ -20,27 +20,27 @@ class LocationViewModel (application: Application): AndroidViewModel(application
         readAllData = repository.readAllData
     }
 
-    fun addStorage(storage: Location) {
+    fun addLocation(location: Location) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addStorage(storage)
+            repository.addStorage(location)
         }
     }
 
-    fun updateStorage(storage: Location) {
+    fun updateLocation(location: Location) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.updateStorage(storage)
+            repository.updateStorage(location)
         }
     }
 
-    fun deleteStorage(storage: Location) {
+    fun deleteLocation(location: Location) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteStorage(storage)
+            repository.deleteLocation(location)
         }
     }
 
-    fun deleteAllStorages() {
+    fun deleteAllLocation() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteAllStorages()
+            repository.deleteAllLocation()
         }
     }
 }
