@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:hint="Current Location"
+                android:hint="Start Location"
                 tools:layout_editor_absoluteX="20dp"
                 tools:layout_editor_absoluteY="144dp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -61,11 +61,12 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/destination"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:hint="Time Travelled"
+                android:hint="End Destination"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -85,12 +86,37 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/destination1"
+                android:id="@+id/closeEncounters"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:hint="Route Taken "
+                android:hint="Close Encounters"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="257dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout5"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/timetaken"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="Time Taken"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,47 +124,33 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDetails"
-            android:layout_width="179dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="20dp"
-            android:text="LOCATION DETAILS"
-            app:cornerRadius="15dp"
-            app:icon="@drawable/ic_baseline_info_24"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGo"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="36dp"
-            android:text="SET LOCATION"
+            android:layout_marginTop="68dp"
+            android:text="Enter Data"
             android:textAlignment="textStart"
             app:cornerRadius="15dp"
-            app:icon="@drawable/ic_baseline_gps_fixed_24"
+            app:icon="@drawable/ic_baseline_update_24"
             app:iconSize="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/btnDetails"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDelete"
-            android:layout_width="171dp"
+            android:id="@+id/btnDetails"
+            android:layout_width="179dp"
             android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:text="DELETE TRIP"
+            android:layout_marginTop="68dp"
+            android:text="LOCATION DETAILS"
             app:cornerRadius="15dp"
-            app:icon="@drawable/ic_launcher_foreground"
-            app:iconPadding="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnGo" />
+            app:icon="@drawable/ic_baseline_info_24"
 
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.737"
+            app:layout_constraintStart_toEndOf="@+id/btnGo"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

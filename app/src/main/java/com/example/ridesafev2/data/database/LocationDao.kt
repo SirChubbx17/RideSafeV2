@@ -15,7 +15,7 @@ interface LocationDao {
     suspend fun deleteLocation(location: Location)
 
     @Query("DELETE FROM location_table")
-    suspend fun deleteAllLocation()
+    suspend fun deleteAll()
 
     @Query("SELECT * FROM location_table ORDER BY id asc")
     fun readAllData(): LiveData<List<Location>>

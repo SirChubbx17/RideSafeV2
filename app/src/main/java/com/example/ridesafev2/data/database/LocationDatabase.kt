@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [Location::class],
-    version = 1,                // <- Database version
+    version = 2,                // <- Database version
     exportSchema = false
 )
 abstract class LocationDatabase: RoomDatabase() { // <- Add 'abstract' keyword and extends RoomDatabase
@@ -29,7 +29,7 @@ abstract class LocationDatabase: RoomDatabase() { // <- Add 'abstract' keyword a
                     context.applicationContext,
                     LocationDatabase::class.java,
                     "location_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }

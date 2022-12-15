@@ -1,9 +1,6 @@
-package com.example.ridesafev2.data.repo
+package com.example.ridesafev2.data.database
 
 import androidx.lifecycle.LiveData
-import com.example.ridesafev2.data.database.Location
-import com.example.ridesafev2.data.database.LocationDao
-
 
 class LocationRepository(private val locationDao: LocationDao) {
     val readAllData: LiveData<List<Location>> = locationDao.readAllData()
@@ -20,7 +17,7 @@ class LocationRepository(private val locationDao: LocationDao) {
         locationDao.deleteLocation(location)
     }
 
-    suspend fun deleteAllLocation() {
-        locationDao.deleteAllLocation()
+    suspend fun deleteAll() {
+        locationDao.deleteAll()
     }
 }
