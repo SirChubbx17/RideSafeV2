@@ -61,7 +61,7 @@ class Adventure : Fragment() {
             val location = Location(0, Integer.parseInt(Current_location.toString()), Integer.parseInt(Destination.toString())) // <- Pass id, firstName, lastName, and age. Although id will be auto-generated because it is a primary key, we need to pass a value or zero (Don't worry, the Room library knows it is the primary key and is auto-generated).
 
             // Add Data to database
-            mLocationViewModel.addStorage(location)
+            mLocationViewModel.addLocation(location)
             Snackbar.make(requireView(), "Successfully Added!", Snackbar.LENGTH_SHORT).show()
             // Navigate back
             findNavController().navigate(R.id.action_adventure_to_mapsActivity2)
