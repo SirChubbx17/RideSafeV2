@@ -81,7 +81,8 @@
                     android:layout_height="39dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="3dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    android:justificationMode="inter_word"
+                    android:text="RideSafe is a mobile app for a bicycle warning system that is linked to a vehicle proximity detector. It displays and store the data from the proximity detector in the mobile app."
                     android:textColor="#795548"
                     android:textSize="11sp"
                     android:textStyle="bold" />
@@ -143,7 +144,8 @@
                         android:layout_height="39dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="3dp"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        android:justificationMode="inter_word"
+                        android:text="RideSafe was created for cyclists to help lower the risk of cycling hazards. It is based on the project Design of a Vehicle Proximity Detector for Bicycle Warning System."
                         android:textColor="#795548"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -191,7 +193,7 @@
                         android:src="@drawable/ej"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginStart="50dp">
                     </ImageView>
 
@@ -199,7 +201,7 @@
                         android:src="@drawable/jcc"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_marginTop="70dp"
+                        android:layout_marginTop="90dp"
                         android:layout_marginStart="50dp">
                     </ImageView>
 
@@ -207,7 +209,7 @@
                         android:src="@drawable/eriee"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_marginTop="140dp"
+                        android:layout_marginTop="160dp"
                         android:layout_marginStart="50dp">
                     </ImageView>
 
@@ -216,14 +218,15 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginStart="50dp"
-                        android:layout_marginTop="220dp"></ImageView>
+                        android:layout_marginTop="230dp"></ImageView>
 
                     <TableLayout
+
                         android:layout_width="145dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center|top"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="30dp"
                         android:layout_marginEnd="30dp">
 
                         <TableRow
@@ -258,7 +261,7 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center|top"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="80dp"
+                        android:layout_marginTop="100dp"
                         android:layout_marginEnd="20dp">
 
                         <TableRow
@@ -293,7 +296,7 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center|top"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="150dp"
+                        android:layout_marginTop="170dp"
                         android:layout_marginEnd="20dp">
 
                         <TableRow
@@ -324,11 +327,11 @@
                     </TableLayout>
 
                     <TableLayout
-                        android:layout_width="145dp"
+                        android:layout_width="200dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center|top"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="230dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="240dp"
                         android:layout_marginEnd="20dp">
 
                         <TableRow

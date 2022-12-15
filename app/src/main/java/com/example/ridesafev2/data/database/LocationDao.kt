@@ -19,4 +19,5 @@ interface LocationDao {
 
     @Query("SELECT * FROM location_table ORDER BY id asc")
     fun readAllData(): LiveData<List<Location>>
+
 }
