@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFrag"
         android:name="com.example.ridesafev2.Home"
-        android:label="rs_frag_home"
+        android:label="Home"
         tools:layout="@layout/rs_frag_home" >
         <action
             android:id="@+id/action_homeFrag_to_about"
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/about"
         android:name="com.example.ridesafev2.About"
-        android:label="rs_frag_about"
+        android:label="About"
         tools:layout="@layout/rs_frag_about" >
         <action
             android:id="@+id/action_about_to_history"
@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/history"
         android:name="com.example.ridesafev2.History"
-        android:label="rs_frag_history"
+        android:label="History"
         tools:layout="@layout/rs_frag_history" >
         <action
             android:id="@+id/action_history_to_about"
@@ -68,7 +68,7 @@
     <fragment
         android:id="@+id/adventure"
         android:name="com.example.ridesafev2.Adventure"
-        android:label="rs_frag_adventure"
+        android:label="Adventure"
         tools:layout="@layout/rs_frag_adventure" >
         <action
             android:id="@+id/action_adventure_to_homeFrag"
@@ -90,12 +90,12 @@
     <activity
         android:id="@+id/loginActivity"
         android:name="com.example.ridesafev2.ui.login.LoginActivity"
-        android:label="activity_login"
+        android:label="Login"
         tools:layout="@layout/activity_login" />
     <fragment
         android:id="@+id/faqFrag"
         android:name="com.example.ridesafev2.FAQ"
-        android:label="rs_frag_faq"
+        android:label="F.A.Q"
         tools:layout="@layout/rs_frag_faq" >
         <action
             android:id="@+id/action_FAQ2_to_homeFrag"

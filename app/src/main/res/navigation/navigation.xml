@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/register"
         android:name="com.example.ridesafev2.data.register.Register"
-        android:label="rs_frag_register"
+        android:label="Register"
         tools:layout="@layout/rs_frag_register" />
 </navigation>
