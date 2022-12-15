@@ -88,7 +88,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     }else{
                         Log.d("Debug:" ,"Your Location:"+ location.longitude)
                         val pos = LatLng(location.latitude, location.longitude)
-                        mMap.addMarker(MarkerOptions().position(pos).title("Marker in Paris"))
+                        mMap.addMarker(MarkerOptions().position(pos).title("Your Location:"+ location.latitude + location.longitude))
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
                     //textView.text = "You Current Location is : Long: "+ location.longitude + " , Lat: " + location.latitude + "\n" + getCityName(location.latitude,location.longitude)
                     }
