@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <item android:id="@+id/homeFrag"
         android:icon="@drawable/home"
         android:title="Home"
         />
 
-    <item android:id="@+id/history"
-        android:icon="@drawable/history"
-        android:title="History"/>
+    <item android:id="@+id/mapsActivity"
+        android:icon="@drawable/ic_baseline_map_24"
+        android:title="Map"/>
 
     <item
         android:id="@+id/faqFrag"
-        android:icon="@android:drawable/ic_menu_help"
+        android:icon="@drawable/ic_baseline_question_mark_24"
         android:title="FAQ" />
 
 </menu>
