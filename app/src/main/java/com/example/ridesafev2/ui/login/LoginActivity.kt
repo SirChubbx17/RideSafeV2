@@ -16,7 +16,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.ridesafev2.MainActivity
-import com.example.ridesafev2.MapsActivity
 import com.example.ridesafev2.databinding.ActivityLoginBinding
 
 import com.example.ridesafev2.R
@@ -26,6 +25,7 @@ import com.example.ridesafev2.data.user.UserDatabase
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
+
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +40,6 @@ class LoginActivity : AppCompatActivity() {
         val register = binding.btnRegister
         val loading = binding.loading
         val dataSource = UserDatabase.getInstance(application).userDao
-
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory(dataSource))
             .get(LoginViewModel::class.java)
