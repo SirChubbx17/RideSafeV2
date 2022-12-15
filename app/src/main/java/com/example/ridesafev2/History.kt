@@ -4,41 +4,37 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.ridesafev2.HistoryAdapter
-import com.example.ridesafev2.HistoryData
-import com.example.ridesafev2.R
-import com.example.ridesafev2.databinding.RsFragAboutBinding
+import com.example.ridesafev2.databinding.RsFragHistoryBinding
 
-class History : AppCompatActivity() {
-    private lateinit var recyclerView : RecyclerView
-    private var historyList = ArrayList<HistoryData>()
-    private lateinit var adapter: HistoryAdapter
+class History : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.rs_frag_history)
+    private var _binding: RsFragHistoryBinding? = null
 
-        recyclerView = findViewById(R.id.recyclerView)
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        addDataToList()
-        adapter = HistoryAdapter(historyList)
-        recyclerView.adapter = adapter
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        _binding = RsFragHistoryBinding.inflate(inflater, container, false)
+        return binding.root
 
     }
 
-    private fun addDataToList() {
-        historyList.add(
-            HistoryData(
-                "Marikina City",
-                "Antipolo City",
-                "10km",
-            )
-        )
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        binding.buttonSecond.setOnClickListener {
+//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+//        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
