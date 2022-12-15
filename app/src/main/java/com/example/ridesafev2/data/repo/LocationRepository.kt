@@ -16,11 +16,11 @@ class LocationRepository(private val locationDao: LocationDao) {
         locationDao.updateLocation(location)
     }
 
-    suspend fun deleteStorage(location: Location) {
+    suspend fun deleteLocation(location: Location) {
         locationDao.deleteLocation(location)
     }
 
-    suspend fun deleteAllStorages() {
+    suspend fun deleteAllLocation() {
         locationDao.deleteAllLocation()
     }
 }
