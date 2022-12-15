@@ -21,7 +21,7 @@ import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class  MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -83,7 +83,6 @@ class MainActivity : AppCompatActivity() {
                 val jsonObj = JSONObject(result)
                 val main = jsonObj.getJSONObject("main")
                 val sys = jsonObj.getJSONObject("sys")
-                val wind = jsonObj.getJSONObject("wind")
                 val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
 
                 val updatedAt:Long = jsonObj.getLong("dt")
