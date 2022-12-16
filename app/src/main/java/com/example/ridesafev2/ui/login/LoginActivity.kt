@@ -28,13 +28,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginViewModel: LoginViewModel
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var bind: RsFragRegisterBinding
+    var isRegisterFragment: Boolean = false
+    private val registerFragment = Register()
+    private val fragment: Fragment? =  supportFragmentManager.findFragmentByTag(Register::class.java.simpleName)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
-        bind = RsFragRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val username = binding.usernameEditText
@@ -72,6 +73,7 @@ class LoginActivity : AppCompatActivity() {
                 updateUiWithUser(loginResult.success)
                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                 startActivity(intent)
+                isRegisterFragment = false
             }
             setResult(Activity.RESULT_OK)
 
@@ -112,22 +114,18 @@ class LoginActivity : AppCompatActivity() {
             }
 
             register.setOnClickListener {
-                val registerFragment = Register()
-                val fragment: Fragment? =  supportFragmentManager.findFragmentByTag(Register::class.java.simpleName)
-
                 if (fragment !is Register){
                     supportFragmentManager.beginTransaction()
                         .add(R.id.container, registerFragment,Register::class.java.simpleName)
                         .commit()
                 }
-
-
             }
+
         }
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {
-        val welcome = "Welcome, "
+        val welcome = "Welcome,"
         val displayName = model.displayName
         // TODO : initiate successful logged in experience
         Toast.makeText(
@@ -139,6 +137,16 @@ class LoginActivity : AppCompatActivity() {
 
     private fun showLoginFailed(@StringRes errorString: Int) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onBackPressed() {
+        if (fragment !is Register) {
+            supportFragmentManager.beginTransaction()
+                .remove(registerFragment)
+                .commit()
+        } else {
+
+        }
     }
 }
 

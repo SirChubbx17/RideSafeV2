@@ -9,6 +9,9 @@
         android:id="@+id/about"
         android:title="About" />
     <item
-        android:id="@+id/adventure"
-        android:title="Adventure" />
+        android:id="@+id/faqFrag"
+        android:title="FAQ" />
+    <item
+        android:id="@+id/loginActivity"
+        android:title="Logout" />
 </menu>
