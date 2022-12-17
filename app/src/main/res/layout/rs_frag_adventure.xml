@@ -145,9 +145,9 @@
             android:layout_width="179dp"
             android:layout_height="60dp"
             android:layout_marginTop="68dp"
-            android:text="LOCATION DETAILS"
+            android:text="Show History"
             app:cornerRadius="15dp"
-            app:icon="@drawable/ic_baseline_info_24"
+            app:icon="@drawable/history"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.737"

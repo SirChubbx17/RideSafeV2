@@ -41,8 +41,8 @@ class HistoryAdapter: RecyclerView.Adapter<HistoryAdapter.MyViewHolder>() {
 
         holder.itemView.findViewById<TextView>(R.id.current_txt).text = currentItem.start_location
         holder.itemView.findViewById<TextView>(R.id.destination_txt).text = currentItem.end_location
-        holder.itemView.findViewById<TextView>(R.id.timetaken_txt).text = currentItem.close_encounters.toString()
-        holder.itemView.findViewById<TextView>(R.id.cenc_txt).text = currentItem.adventureTime.toString()+" mins"
+        holder.itemView.findViewById<TextView>(R.id.cenc_txt).text = currentItem.close_encounters.toString()
+        holder.itemView.findViewById<TextView>(R.id.timetaken_txt).text = currentItem.adventureTime.toString()+" mins"
 
         holder.itemView.findViewById<ConstraintLayout>(R.id.rowLayout).setOnClickListener{
             val action = HistoryDirections.actionHistoryToUpdate(currentItem)

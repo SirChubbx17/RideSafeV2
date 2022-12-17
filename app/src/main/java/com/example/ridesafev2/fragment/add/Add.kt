@@ -37,9 +37,6 @@ class Add : Fragment() {
     private var _binding: RsFragAdventureBinding? = null
 
     private lateinit var locationViewModel: LocationViewModel
-    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    lateinit var locationRequest: LocationRequest
-    val PERMISSION_ID = 1010
 
     // This property is only valid between onCreateView and
     // onDestroyView.
