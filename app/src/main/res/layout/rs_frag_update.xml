@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:hint="Time Taken"
+                android:hint="Time Taken (in mins)"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -141,13 +141,13 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDetails"
+            android:id="@+id/btnDelete"
             android:layout_width="179dp"
             android:layout_height="60dp"
             android:layout_marginTop="68dp"
-            android:text="LOCATION DETAILS"
+            android:text="Delete"
             app:cornerRadius="15dp"
-            app:icon="@drawable/ic_baseline_info_24"
+            app:icon="@drawable/ic_baseline_delete_24"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.737"

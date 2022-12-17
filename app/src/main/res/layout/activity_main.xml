@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    app:layout_constraintBottom_toTopOf="@+id/bottomConst">
 
 <!--    <com.google.android.material.appbar.AppBarLayout-->
 <!--        android:layout_width="match_parent"-->
@@ -23,11 +24,13 @@
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomConst">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomConst">
 
         <fragment
             android:id="@+id/myNavHostFragment"
@@ -36,6 +39,7 @@
             android:name = "androidx.navigation.fragment.NavHostFragment"
             app:navGraph = "@navigation/nav_menu"
             app:defaultNavHost = "true"
+            app:layout_constraintBottom_toTopOf="@+id/bottomConst"
             tools:layout="@layout/rs_frag_home" />
     </LinearLayout>
         <com.google.android.material.navigation.NavigationView
@@ -49,8 +53,10 @@
 
     </androidx.drawerlayout.widget.DrawerLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomConst"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNav"
