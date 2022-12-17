@@ -60,8 +60,8 @@
                             android:id="@+id/current_loc_label"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Current location:"
-                            android:textColor="@color/gray"
+                            android:text="Start:"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -83,12 +83,56 @@
                             android:id="@+id/destination_label"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Destination location:"
-                            android:textColor="@color/textColorPrimary"
+                            android:text="End:"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/destination_txt"
+                            android:layout_column="2"
+                            android:gravity="right"
+                            android:text="----"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/timetaken_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time Taken:"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/timetaken_txt"
+                            android:layout_column="2"
+                            android:gravity="right"
+                            android:text="----"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/cenc_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Close Encounter:"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/cenc_txt"
                             android:layout_column="2"
                             android:gravity="right"
                             android:text="----"
