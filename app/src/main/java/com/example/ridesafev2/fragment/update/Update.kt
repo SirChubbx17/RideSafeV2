@@ -77,31 +77,31 @@ class Update : Fragment() {
         return !(TextUtils.isEmpty(currentloc) && TextUtils.isEmpty(destination) && TextUtils.isEmpty(closeenc) && TextUtils.isEmpty(adventuretime))
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        inflater.inflate(R.menu.delete_menu, menu)
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if (item.itemId == R.id.menu_delete) {
-//            deleteUser()
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
-//
-//    private fun deleteAdventure() {
-//        val builder = AlertDialog.Builder(requireContext())
-//        builder.setPositiveButton("Yes") { _, _ ->
-//            locationViewModel.deleteUser(args.currentUser)
-//            Toast.makeText(
-//                requireContext(),
-//                "Successfully removed: ${args.currentUser.firstName}",
-//                Toast.LENGTH_SHORT).show()
-//            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
-//        }
-//        builder.setNegativeButton("No") { _, _ -> }
-//        builder.setTitle("Delete ${args.currentUser.firstName}?")
-//        builder.setMessage("Are you sure you want to delete ${args.currentUser.firstName}?")
-//        builder.create().show()
-//    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete) {
+            deleteAdventure()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteAdventure() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+            locationViewModel.deleteLocation(args.currentAdventure)
+            Toast.makeText(
+                requireContext(),
+                "Successfully removed: ${args.currentAdventure}",
+                Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_update_to_history)
+        }
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete ${args.currentAdventure}?")
+        builder.setMessage("Are you sure you want to delete record number ${args.currentAdventure.id}?")
+        builder.create().show()
+    }
 
 }
