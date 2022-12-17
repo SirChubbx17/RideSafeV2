@@ -50,7 +50,7 @@ class Update : Fragment() {
         // Add menu
         setHasOptionsMenu(true)
 
-        return view
+        return binding.root
     }
 
 
