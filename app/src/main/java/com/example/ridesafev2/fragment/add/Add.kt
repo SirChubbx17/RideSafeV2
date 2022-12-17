@@ -1,20 +1,33 @@
 package com.example.ridesafev2.fragment.add
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.location.LocationManager
 import android.os.Bundle
+import android.os.Looper
 import android.text.Editable
 import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.ridesafev2.R
 import com.example.ridesafev2.data.database.Location
 import com.example.ridesafev2.data.database.LocationViewModel
 import com.example.ridesafev2.databinding.RsFragAdventureBinding
+import com.google.android.gms.location.*
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import java.util.*
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -24,6 +37,9 @@ class Add : Fragment() {
     private var _binding: RsFragAdventureBinding? = null
 
     private lateinit var locationViewModel: LocationViewModel
+    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    lateinit var locationRequest: LocationRequest
+    val PERMISSION_ID = 1010
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -44,7 +60,6 @@ class Add : Fragment() {
         binding.btnDetails.setOnClickListener {
             findNavController().navigate(R.id.action_adventure_to_history)
         }
-
 
         return binding.root
 
@@ -77,4 +92,5 @@ class Add : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
