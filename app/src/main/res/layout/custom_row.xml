@@ -6,8 +6,8 @@
     android:id="@+id/rowLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20sp">
-
+    android:padding="20sp"
+    >
 
     <TextView
         android:id="@+id/current_txt_list"

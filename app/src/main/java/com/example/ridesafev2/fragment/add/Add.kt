@@ -1,6 +1,5 @@
 package com.example.ridesafev2.fragment.add
 
-import android.icu.number.IntegerWidth
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
@@ -8,23 +7,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.ridesafev2.R
 import com.example.ridesafev2.data.database.Location
-import com.example.ridesafev2.data.viewModel.LocationViewModel
+import com.example.ridesafev2.data.database.LocationViewModel
 import com.example.ridesafev2.databinding.RsFragAdventureBinding
-import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class Adventure : Fragment() {
+class Add : Fragment() {
 
     private var _binding: RsFragAdventureBinding? = null
 
-    private lateinit var mLocationViewModel: LocationViewModel
+    private lateinit var locationViewModel: LocationViewModel
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -37,11 +36,10 @@ class Adventure : Fragment() {
 
         _binding = RsFragAdventureBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).supportActionBar?.title = "Add Data"
-        mLocationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
+        locationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
 
         binding.btnGo.setOnClickListener {
             insertDataToDatabase()
-            findNavController().navigate(R.id.action_adventure_to_mapsActivity2)
         }
         binding.btnDetails.setOnClickListener {
             findNavController().navigate(R.id.action_adventure_to_history)
@@ -53,28 +51,26 @@ class Adventure : Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val Current_location = binding.currentLoc.text
-        val Destination = binding.destination1.text
+        val currentloc = binding.currentLoc.text
+        val destination = binding.destination.text
+        val closeenc = binding.closeEncounters.text
+        val adventuretime = binding.timetaken.text
 
-        if(inputCheck(Current_location, Destination)) {
+        if(inputCheck(currentloc, destination, closeenc, adventuretime)) {
             // Create User Object
-            val location = Location(0, Integer.parseInt(Current_location.toString()), Integer.parseInt(Destination.toString())) // <- Pass id, firstName, lastName, and age. Although id will be auto-generated because it is a primary key, we need to pass a value or zero (Don't worry, the Room library knows it is the primary key and is auto-generated).
+            val location = Location(0, currentloc.toString(),destination.toString(),Integer.parseInt(closeenc.toString()),Integer.parseInt(adventuretime.toString())) // <- Pass id, firstName, lastName, and age. Although id will be auto-generated because it is a primary key, we need to pass a value or zero (Don't worry, the Room library knows it is the primary key and is auto-generated).
 
             // Add Data to database
-            mLocationViewModel.addLocation(location)
-            Snackbar.make(requireView(), "Successfully Added!", Snackbar.LENGTH_SHORT).show()
-            // Navigate back
-            findNavController().navigate(R.id.action_adventure_to_mapsActivity2)
+            locationViewModel.addLocation(location)
+            Toast.makeText(context,"Success!",Toast.LENGTH_SHORT).show()
+
         } else {
-            Snackbar.make(requireView(), "Please fill out all fields!", Snackbar.LENGTH_LONG).show()
+            Toast.makeText(context,"Please fill out all fields.",Toast.LENGTH_SHORT).show()
         }
-
-
     }
 
-    private fun inputCheck(Current_location: Editable?, Destination: Editable?): Boolean {
-        return !(TextUtils.isEmpty(Current_location) && TextUtils.isEmpty(Destination))
-
+    private fun inputCheck(currentloc: Editable?, destination: Editable?, closeenc: Editable?, adventuretime: Editable?): Boolean {
+        return !(TextUtils.isEmpty(currentloc) && TextUtils.isEmpty(destination) && TextUtils.isEmpty(closeenc) && TextUtils.isEmpty(adventuretime))
     }
 
     override fun onDestroyView() {

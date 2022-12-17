@@ -1,12 +1,9 @@
-package com.example.ridesafev2.data.viewModel
+package com.example.ridesafev2.data.database
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.ridesafev2.data.database.Location
-import com.example.ridesafev2.data.database.LocationDatabase
-import com.example.ridesafev2.data.repo.LocationRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -29,8 +26,7 @@ class LocationViewModel (application: Application): AndroidViewModel(application
     fun updateLocation(location: Location) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateLocation(location)
-        }
-    }
+        }   }
 
     fun deleteLocation(location: Location) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -38,9 +34,9 @@ class LocationViewModel (application: Application): AndroidViewModel(application
         }
     }
 
-    fun deleteAllLocation() {
+    fun deleteAll() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteAllLocation()
+            repository.deleteAll()
         }
     }
 }
