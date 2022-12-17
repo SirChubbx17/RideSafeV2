@@ -1,6 +1,5 @@
 package com.example.ridesafev2.fragment.add
 
-import android.icu.number.IntegerWidth
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
@@ -16,12 +15,11 @@ import com.example.ridesafev2.R
 import com.example.ridesafev2.data.database.Location
 import com.example.ridesafev2.data.database.LocationViewModel
 import com.example.ridesafev2.databinding.RsFragAdventureBinding
-import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class Adventure : Fragment() {
+class Add : Fragment() {
 
     private var _binding: RsFragAdventureBinding? = null
 
