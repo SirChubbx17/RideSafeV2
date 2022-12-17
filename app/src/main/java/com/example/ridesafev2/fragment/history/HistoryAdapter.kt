@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.ListFragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ridesafev2.R
 import com.example.ridesafev2.data.database.Location
 import com.example.ridesafev2.fragment.update.Update
+import com.example.ridesafev2.fragment.update.UpdateDirections
 
 class HistoryAdapter: RecyclerView.Adapter<HistoryAdapter.MyViewHolder>() {
 
@@ -43,7 +45,8 @@ class HistoryAdapter: RecyclerView.Adapter<HistoryAdapter.MyViewHolder>() {
         holder.itemView.findViewById<TextView>(R.id.destination_txt).text = currentItem.adventureTime.toString()
 
         holder.itemView.findViewById<ConstraintLayout>(R.id.rowLayout).setOnClickListener{
-            val action =
+            val action = HistoryDirections.actionHistoryToUpdate(currentItem)
+            holder.itemView.findNavController().navigate(action)
         }
     }
 

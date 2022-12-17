@@ -12,13 +12,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.ridesafev2.R
+import com.example.ridesafev2.data.database.Location
 import com.example.ridesafev2.data.database.LocationViewModel
 import com.example.ridesafev2.databinding.RsFragAdventureBinding
 import com.example.ridesafev2.databinding.RsFragUpdateBinding
 
 class Update : Fragment() {
 
-    private val args by navArgs<>()
+    private val args by navArgs<UpdateArgs>()
 
     private lateinit var locationViewModel: LocationViewModel
 
@@ -37,10 +38,10 @@ class Update : Fragment() {
 
         locationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
 
-        binding.updateCurrentLoc.setText(args.currentLocation.start_location)
-        binding.updateDestination.setText(args.currentLocation.end_location)
-        binding.updateCloseEncounters.setText(args.currentLocation.close_encounters)
-        binding.updateTimetaken.setText(args.currentLocation.adventureTime)
+        binding.updateCurrentLoc.setText(args.currentAdventure.start_location)
+        binding.updateDestination.setText(args.currentAdventure.end_location)
+        binding.updateCloseEncounters.setText(args.currentAdventure.close_encounters.toString())
+        binding.updateTimetaken.setText(args.currentAdventure.adventureTime.toString())
 
         binding.btnUpdate.setOnClickListener {
             updateItem()
@@ -54,53 +55,53 @@ class Update : Fragment() {
 
 
     private fun updateItem() {
-        val firstName = updateFirstName_et.text.toString()
-        val lastName = updateLastName_et.text.toString()
-        val age = Integer.parseInt(updateAge_et.text.toString())
+        val currentloc = binding.updateCurrentLoc.text
+        val destination = binding.updateDestination.text
+        val closeenc = binding.updateCloseEncounters.text
+        val adventuretime = binding.updateTimetaken.text
 
-        if (inputCheck(firstName, lastName, updateAge_et.text)) {
+        if (inputCheck(currentloc, destination, closeenc, adventuretime)) {
             // Create User Object
-            val updatedUser = User(args.currentUser.id, firstName, lastName, age)
+            val location = Location(0, currentloc.toString(),destination.toString(),Integer.parseInt(closeenc.toString()),Integer.parseInt(adventuretime.toString()))
             // Update Current User
-            mUserViewModel.updateUser(updatedUser)
-            Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
+            locationViewModel.addLocation(location)
+            Toast.makeText(context,"Success!",Toast.LENGTH_SHORT).show()
             // Navigate Back
-            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+            findNavController().navigate(R.id.action_update_to_history)
         } else {
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(context,"Please fill out all fields.",Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun inputCheck(firstName: String, lastName: String, age: Editable): Boolean {
-        return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) && age.isEmpty())
+    private fun inputCheck(currentloc: Editable?, destination: Editable?, closeenc: Editable?, adventuretime: Editable?): Boolean {
+        return !(TextUtils.isEmpty(currentloc) && TextUtils.isEmpty(destination) && TextUtils.isEmpty(closeenc) && TextUtils.isEmpty(adventuretime))
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.delete_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_delete) {
-            deleteUser()
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun deleteUser() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
-            mUserViewModel.deleteUser(args.currentUser)
-            Toast.makeText(
-                requireContext(),
-                "Successfully removed: ${args.currentUser.firstName}",
-                Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
-        }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${args.currentUser.firstName}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentUser.firstName}?")
-        builder.create().show()
-    }
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        inflater.inflate(R.menu.delete_menu, menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        if (item.itemId == R.id.menu_delete) {
+//            deleteUser()
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
+//
+//    private fun deleteAdventure() {
+//        val builder = AlertDialog.Builder(requireContext())
+//        builder.setPositiveButton("Yes") { _, _ ->
+//            locationViewModel.deleteUser(args.currentUser)
+//            Toast.makeText(
+//                requireContext(),
+//                "Successfully removed: ${args.currentUser.firstName}",
+//                Toast.LENGTH_SHORT).show()
+//            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+//        }
+//        builder.setNegativeButton("No") { _, _ -> }
+//        builder.setTitle("Delete ${args.currentUser.firstName}?")
+//        builder.setMessage("Are you sure you want to delete ${args.currentUser.firstName}?")
+//        builder.create().show()
+//    }
 
 }
