@@ -62,10 +62,10 @@ class Update : Fragment() {
 
         if (inputCheck(currentloc, destination, closeenc, adventuretime)) {
             // Create User Object
-            val location = Location(0, currentloc.toString(),destination.toString(),Integer.parseInt(closeenc.toString()),Integer.parseInt(adventuretime.toString()))
+            val location = Location(args.currentAdventure.id, currentloc.toString(),destination.toString(),Integer.parseInt(closeenc.toString()),Integer.parseInt(adventuretime.toString()))
             // Update Current User
             locationViewModel.updateLocation(location)
-            Toast.makeText(context,"Success!",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Update Success!",Toast.LENGTH_SHORT).show()
             // Navigate Back
             findNavController().navigate(R.id.action_update_to_history)
         } else {
